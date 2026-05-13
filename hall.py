@@ -25,9 +25,12 @@ class Hall:
     def view_available_seats(self, id):
         for i in self.show_list:
             if i[0] == id:
-                print(f"Movie: {i[1]}, \t\t Time: Today at {i[2]}\n")
+                print(f"Movie: {i[1]} \t\t Time: Today at {i[2]}\n\n")
                 
         for x in range(self.row):
             for y in range(self.col):
-                print(self.seats[id][x][y], end = " ")
+                if(self.seats[id][x][y] == 'free'):
+                    print(f'{chr(x+65)}{y+1}', end = "\t")
+                else:
+                    print("X", end = "\t")
             print("\n")

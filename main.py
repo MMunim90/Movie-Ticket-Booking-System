@@ -10,7 +10,7 @@ my_hall.enter_show(321, 'Hati', '07:00 PM')
 my_hall.enter_show(345, 'Gora', '10:00 PM')
 
 while True:
-    print("\n--------------------------------------------------------\n")
+    print("\n------------------------------------------------------------------\n")
     print("1. View all show today.")
     print("2. View available seats.")
     print("3. Book tickets.")
@@ -18,11 +18,11 @@ while True:
 
     option = int(input("Enter your option: "))
     if option == 1:
-        print("\n--------------------------------------------------------\n")
+        print("\n------------------------------------------------------------------\n")
         my_hall.view_show_list()
     elif option == 2:
         id = int(input("Enter Show ID: "))
-        print("\n--------------------------------------------------------\n")
+        print("\n------------------------------------------------------------------\n")
         my_hall.view_available_seats(id)
     elif option == 3:
         pass
