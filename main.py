@@ -25,7 +25,15 @@ while True:
         print("\n------------------------------------------------------------------\n")
         my_hall.view_available_seats(id)
     elif option == 3:
-        pass
+        id = int(input("Enter Show ID: "))
+        name = input("Enter your name: ")
+        phone = input("Enter your phone number: ")
+        tickets = int(input("Enter number of tickets: "))
+        booking_seats = []
+        for i in range(tickets):
+            booking_seats.append(input("Enter your seat no: "))
+            
+        my_hall.book_tickets(id, name, phone, booking_seats)
     elif option == 4:
         print("Please wait.....")
         sleep(1)

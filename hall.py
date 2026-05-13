@@ -37,3 +37,9 @@ class Hall:
                     else:
                         print("X", end = "\t")
                 print("\n")
+                
+    def book_tickets(self, id, name, phone,booking_seats):
+        for x in booking_seats:
+            r = ord(x[0]) - 65
+            c = ord(x[1]) - 49
+            print(r, c)
