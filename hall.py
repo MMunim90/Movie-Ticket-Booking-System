@@ -39,7 +39,36 @@ class Hall:
                 print("\n")
                 
     def book_tickets(self, id, name, phone,booking_seats):
-        for x in booking_seats:
-            r = ord(x[0]) - 65
-            c = ord(x[1]) - 49
-            print(r, c)
+        flag = 0
+        self.booked_tickets = []
+        if id not in self.seats:
+            print("Wrong Show ID")
+        else:
+            for x in booking_seats:
+                r = ord(x[0]) - 65
+                c = ord(x[1]) - 49
+                
+                if r >= self.row or c >= self.col or r < 0 or c < 0:
+                    print("Seat doesn't exists.")
+                    
+                elif self.seats[id][r][c] != 'free':
+                    print(f"{x} is already booked.")
+                    
+                else:
+                    self.seats[id][r][c] = 'X'
+                    self.booked_tickets.append(x)
+                    flag = 1
+            
+            if flag == 1:        
+                print("\n\t ##### Ticket Booked Successfully #####")
+                print("\n------------------------------------------------------------------\n")
+                print(f"Name: {name}")
+                print(f"Phone: {phone}")
+                for i in self.show_list:
+                    if i[0] == id:
+                        print(f"Movie: {i[1]}, Time: Today at {i[2]}")
+                print("Tickets: ", end='')
+                for i in self.booked_tickets:
+                    print(i, end=', ')
+                print(f"\t Hall no.: {self.hall_no}")
+                print(f"Price: {500*len(self.booked_tickets)} Taka")
